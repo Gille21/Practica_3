@@ -1,6 +1,10 @@
-from django.urls import path
-from .views import ComputerView
+from django.urls import path,include
+from rest_framework import routers
+from api import views
+
+router = routers.DefaultRouter()
+router.register(r'computers', views.ComputerViews)
 
 urlpatterns = [
-    path('computers/',ComputerView.as_view(), name='computer_list')
+    path('', include(router.urls))
 ]
