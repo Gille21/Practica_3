@@ -20,3 +20,6 @@ class Computer(models.Model):
     vel_procesador = models.CharField(max_length=50)
     put_procesador = models.BigIntegerField()
     sistema_operativo = models.CharField(max_length=50, null=True)
+    costo = models.FloatField(null=True)
+    proposito = models.CharField(max_length=50, null=True)
+    tienda = models.CharField(max_length=200, null=True)
