@@ -21,8 +21,8 @@ function Formulario() {
     e.preventDefault();
     // Aquí puedes realizar acciones basadas en las respuestas del usuario, como enviar los datos a un servidor o mostrar un resumen de las respuestas.
 
-    // Redirige a la página de resultados
-    navigate('/resultados'); // Utiliza navigate para redirigir a '/resultados'
+    // Redirige a la página de resultados con las respuestas del formulario
+    navigate(`/resultados?usoComputadora=${usoComputadora}&preferenciaMarca=${preferenciaMarca}&tipoComputadora=${tipoComputadora}&tareasGustariaRealizar=${tareasGustariaRealizar}&enfoqueDisenoFuncionalidad=${enfoqueDisenoFuncionalidad}&sistemaOperativo=${sistemaOperativo}&necesitaAlmacenamiento=${necesitaAlmacenamiento}&almacenamientoCantidad=${almacenamientoCantidad}&presupuesto=${presupuesto}`);
   };
 
   // Renderiza el formulario con los campos y opciones
@@ -38,10 +38,10 @@ function Formulario() {
             value={usoComputadora}
             onChange={(e) => setUsoComputadora(e.target.value)}
           >
-            <option value="">Selecciona una opción</option>
-            <option value="trabajo">Trabajo</option>
-            <option value="escuela">Escuela</option>
-            <option value="entretenimiento">Entretenimiento</option>
+          <option value="">Selecciona una opción</option>
+          <option value="Gamer">Gamer</option>
+          <option value="Trabajo">Trabajo</option>
+          <option value="Entretenimiento">Entretenimiento</option>
           </select>
         </div>
         <div className="form-group">
@@ -118,33 +118,32 @@ function Formulario() {
           </select>
         </div>
         <div>
-  <label>
-    ¿Necesitas que la computadora tenga mucho espacio de almacenamiento para fotos, videos u otros archivos?
-  </label>
-  <label className="checkbox-label">
-    <input
-      type="checkbox"
-      checked={necesitaAlmacenamiento}
-      onChange={() => setNecesitaAlmacenamiento(!necesitaAlmacenamiento)}
-    />
-    
-  </label>
-  {necesitaAlmacenamiento && (
-    <div>
-      <label>Selecciona la cantidad de almacenamiento:</label>
-      <select
-        value={almacenamientoCantidad}
-        onChange={(e) => setAlmacenamientoCantidad(e.target.value)}
-        className="custom-select" 
-      >
-        <option value="250GB">250GB</option>
-        <option value="500GB">500GB</option>
-        <option value="1TB">1TB</option>
-      </select>
-    </div>
-  )}
-</div>
-
+          <label>
+            ¿Necesitas que la computadora tenga mucho espacio de almacenamiento para fotos, videos u otros archivos?
+          </label>
+          <label className="checkbox-label">
+            <input
+              type="checkbox"
+              checked={necesitaAlmacenamiento}
+              onChange={() => setNecesitaAlmacenamiento(!necesitaAlmacenamiento)}
+            />
+            Sí
+          </label>
+          {necesitaAlmacenamiento && (
+            <div>
+              <label>Selecciona la cantidad de almacenamiento:</label>
+              <select
+                value={almacenamientoCantidad}
+                onChange={(e) => setAlmacenamientoCantidad(e.target.value)}
+                className="custom-select" 
+              >
+                <option value="250GB">250GB</option>
+                <option value="500GB">500GB</option>
+                <option value="1TB">1TB</option>
+              </select>
+            </div>
+          )}
+        </div>
         <div className="form-group">
           <label htmlFor="presupuesto">¿Cuál es tu presupuesto aproximado?</label>
           <input
