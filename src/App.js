@@ -1,6 +1,6 @@
 import React from 'react';
 import './Styles/styles.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 
 import Header from './Header';
 import Footer from './Footer';
@@ -12,6 +12,9 @@ function App() {
     <Router>
       <div className="App">
         <Header />
+        <Link to="/formulario">
+          <button>Ir a Formulario</button>
+        </Link>
         <Routes>
           <Route path="/formulario" element={<Formulario />} />
           <Route path="/resultados" element={<Resultados />} />

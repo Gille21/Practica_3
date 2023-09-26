@@ -1,0 +1,25 @@
+/* Footer Styles */
+footer {
+    background-color: #212934;
+    color: #cfd6e1;
+  }
+  
+  footer h3 {
+    color: #59ab6e;
+  }
+  
+  footer ul.list-unstyled li a {
+    color: #cfd6e1;
+  }
+  
+  footer ul.list-unstyled li a:hover {
+    color: #69bb7e;
+  }
+  
+  /* Small devices (landscape phones, 576px and up) */
+  @media (min-width: 576px) {
+    footer {
+      padding: 2rem 0;
+    }
+  }
+  
