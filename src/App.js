@@ -8,6 +8,7 @@ import Formulario from './Formulario';
 import Resultados from './Resultados';
 import Body from './Body';
 import About from './About'; 
+import Shop from './Shop';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Routes>
         <Route path="/" element={<Body />} />
           <Route path="/about" element={<About />} /> {/* Ruta para la página About */}
+          <Route path="/shop" element={<Shop />} /> {/* Ruta para la página About */}
           <Route path="/formulario" element={<Formulario />} />
           <Route path="/resultados" element={<Resultados />} />
         </Routes>
