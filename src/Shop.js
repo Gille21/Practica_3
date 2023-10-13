@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function Shop() {
   const [products, setProducts] = useState([]);
@@ -6,11 +7,17 @@ function Shop() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Realiza una solicitud GET a tu API
-    fetch('http://127.0.0.1:8000/api/computers/')
-      .then((response) => response.json())
-      .then((data) => {
-        setProducts(data); // Almacena los productos en el estado
+    // Configura tu URL de la API y las credenciales de autenticación (usuario y contraseña)
+    const apiUrl = 'http://127.0.0.1:8000/api/computers/';
+    const auth = {
+      username: 'guille',
+      password: 'Ghln210601',
+    };
+
+    // Realiza una solicitud GET con Axios
+    axios.get(apiUrl, { auth })
+      .then((response) => {
+        setProducts(response.data); // Almacena los productos en el estado
         setLoading(false); // Cambia el estado de carga a falso
       })
       .catch((err) => {
