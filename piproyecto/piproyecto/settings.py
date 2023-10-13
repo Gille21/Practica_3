@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'corsheaders',
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -54,7 +55,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
 ]
-
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
+)
 ROOT_URLCONF = 'piproyecto.urls'
 
 TEMPLATES = [
