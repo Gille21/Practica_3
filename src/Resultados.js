@@ -15,13 +15,7 @@ const productos = [
     costo: 'COP 4,364,529.00',
     imagen: LAPTOP,
   },
-  {
-    nombre: 'L14 Gen 2',
-    tipo: 'Portatil-',
-    proposito: 'Trabajo',
-    costo: 'COP 3,000,000.00',
-    imagen: LAPTOP2,
-  },
+  
   {
     nombre: 'Huawei Note 5',
     tipo: 'Portatil-',
