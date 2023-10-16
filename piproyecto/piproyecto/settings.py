@@ -60,7 +60,9 @@ ROOT_URLCONF = 'piproyecto.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+                "api/templates/"
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -84,7 +86,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'piproyecto',
         'USER': 'root',
-        'PASSWORD': '12345*',
+        'PASSWORD': 'samuel159',
         'HOST': 'localhost',
         'PORT': '',
     }
