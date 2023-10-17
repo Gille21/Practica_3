@@ -16,7 +16,7 @@ function Shop() {
     const apiUrl = 'http://127.0.0.1:8000/api/computers/';
     const auth = {
       username: 'guille',
-      password: 'Ghln210601',
+      password: '210601Ghln.',
     };
 
     // Realiza una solicitud GET con Axios

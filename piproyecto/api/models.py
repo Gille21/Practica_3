@@ -22,5 +22,5 @@ class Computer(models.Model):
     sistema_operativo = models.CharField(max_length=50, null=True)
     costo = models.FloatField(null=True)
     proposito = models.CharField(max_length=50, null=True)
-    tienda = models.CharField(max_length=200, null=True)
+    tienda = models.CharField(max_length=500, null=True)
     img = models.ImageField(upload_to='files/covers', null=True)
