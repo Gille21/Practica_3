@@ -4,7 +4,10 @@ from .serializer import ComputerSerializer
 from rest_framework.permissions import (IsAuthenticated,IsAuthenticatedOrReadOnly,IsAdminUser,DjangoModelPermissions)
 from django.db import connection
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
 from .procedures import my_custom_sql
+from django.http.response import JsonResponse
+import json
 
 # Create your views here.
 
@@ -20,8 +23,15 @@ class ComputerViews(viewsets.ModelViewSet):
     #         return [IsAuthenticated()]
     #     return[IsAuthenticatedOrReadOnly()]
     
+    
 
-def consulta(request):
-    print(my_custom_sql("Trabajo","Lenovo","Windows 11", "512 GB"))
-    return render(request, "consulta.html")
-
+@csrf_exempt
+def consulta(request, id=0):
+    json_list = []
+    if request.method == 'POST':
+        result = my_custom_sql("Trabajo","Lenovo","Windows 11", "512 GB", "Portatil")
+        for element in result:
+            element_json = json.loads(element[0])
+            json_list.append(element_json)
+        return JsonResponse(json_list, safe=False)
+    return JsonResponse("Error al consultar Computador")

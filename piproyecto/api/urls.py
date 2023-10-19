@@ -7,5 +7,5 @@ router.register(r'computers', views.ComputerViews)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('consulta', views.consulta)
+    path('consulta/', views.consulta)
 ]
