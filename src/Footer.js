@@ -1,9 +1,10 @@
 import React from 'react';
-import './Styles/bootstrap.min.css'; // Importa el archivo CSS para los estilos del footer
+import './Styles/bootstrap.min.css';
+import './Styles/Footer.css' // Importa el archivo CSS para los estilos del footer
 
 function Footer() {
   return (
-    <footer className="bg-dark text-light py-4">
+    <footer className="bg-dark text-light">
       <div className="container">
         <div className="row">
           <div className="col-md-4">

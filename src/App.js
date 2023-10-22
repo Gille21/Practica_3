@@ -9,6 +9,9 @@ import Resultados from './Resultados';
 import Body from './Body';
 import About from './About'; 
 import Shop from './Shop';
+import Ccompu from './crud/ccompu';
+import Consulta from './consulta';
+
 
 function App() {
   return (
@@ -21,6 +24,8 @@ function App() {
           <Route path="/shop" element={<Shop />} /> {/* Ruta para la página About */}
           <Route path="/formulario" element={<Formulario />} />
           <Route path="/resultados" element={<Resultados />} />
+          <Route path="/crud/ccompu" element={<Ccompu />} />
+          <Route path="/consulta" element={<Consulta />} />
         </Routes>
         <Footer />
       </div>

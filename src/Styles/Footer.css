@@ -1,5 +1,7 @@
 /* Footer Styles */
 footer {
+    margin-top: 10px;
+    width: 100% !important;
     background-color: #212934;
     color: #cfd6e1;
   }
