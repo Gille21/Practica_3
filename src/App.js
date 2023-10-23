@@ -9,6 +9,8 @@ import Resultados from './Resultados';
 import Body from './Body';
 import About from './About'; 
 import Shop from './Shop';
+import Login from './auth/login';
+import Register from './auth/register';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path="/shop" element={<Shop />} /> {/* Ruta para la página About */}
           <Route path="/formulario" element={<Formulario />} />
           <Route path="/resultados" element={<Resultados />} />
+          <Route path="/auth/login" element={< Login/>} />
+          <Route path="/auth/register" element={< Register/>} />
         </Routes>
         <Footer />
       </div>

@@ -30,7 +30,6 @@ function Header() {
               <div className="me-2">logo</div>
               <div className="me-2">logo</div>
               <div className="me-2">logo</div>
-              <div>logo</div>
             </div>
           </div>
         </div>
@@ -60,6 +59,9 @@ function Header() {
                 </li>
                 <li className="nav-item">
                   <Link to="/contact" className="nav-link">Contact</Link>
+                </li>
+                <li className="nav-item">
+                  <Link to="/auth/login" className="nav-link">Login</Link>
                 </li>
               </ul>
             </div>
