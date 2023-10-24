@@ -9,6 +9,7 @@ import Resultados from './Resultados';
 import Body from './Body';
 import About from './About'; 
 import Shop from './Shop';
+import Producto from './Producto'; // Importa el componente Producto
 
 function App() {
   return (
@@ -16,11 +17,12 @@ function App() {
       <div className="App">
         <Header />
         <Routes>
-        <Route path="/" element={<Body />} />
-          <Route path="/about" element={<About />} /> {/* Ruta para la página About */}
-          <Route path="/shop" element={<Shop />} /> {/* Ruta para la página About */}
+          <Route path="/" element={<Body />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/shop" element={<Shop />} />
           <Route path="/formulario" element={<Formulario />} />
           <Route path="/resultados" element={<Resultados />} />
+          <Route path="/producto/:id" element={<Producto />} /> {/* Ruta para detalles del producto */}
         </Routes>
         <Footer />
       </div>

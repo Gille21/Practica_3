@@ -1,11 +1,11 @@
-from django.urls import path,include
+from django.urls import path, include
 from rest_framework import routers
-from api import views
+from api.views import ComputerViews, consulta
 
 router = routers.DefaultRouter()
-router.register(r'computers', views.ComputerViews)
+router.register(r'computers', ComputerViews)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('consulta/', views.consulta)
+    path('consulta/', consulta, name='consulta'),
 ]

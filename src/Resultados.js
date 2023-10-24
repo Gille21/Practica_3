@@ -1,48 +1,18 @@
-import React from 'react';
-import { useLocation } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import './Styles/resultados.css';
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import "./Styles/resultados.css";
+import "./Styles/bootstrap.min.css";
 
-import LAPTOP from './img/LAPTOP.png';
-import LAPTOP2 from './img/LAPTOP3.webp';
-import LAPTOP3 from './img/LAPTOP2.png';
-
-const productos = [
-  {
-    nombre: 'CYBORG 15 A12VF',
-    tipo: 'Portatil-',
-    proposito: 'Gamer',
-    costo: 'COP 4,364,529.00',
-    imagen: LAPTOP,
-  },
-  
-  {
-    nombre: 'Huawei Note 5',
-    tipo: 'Portatil-',
-    proposito: 'Entretenimiento',
-    costo: 'COP 3,000,000.00',
-    imagen: LAPTOP3,
-  },
-  // Agrega más productos según sea necesario
-];
-
-function Resultado() {
+function Resultado(props) {
   const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const usoComputadora = searchParams.get('usoComputadora');
-
-  const filterProductos = (producto) => {
-    if (!usoComputadora) {
-      return true;
-    }
-    return producto.proposito === usoComputadora;
-  };
-
-  const productosFiltrados = productos.filter(filterProductos);
+  const productosFiltrados = location.state.productosFiltrados || [];
 
   return (
     <div>
-      <Link to="/formulario" className="btn btn-outline-dark view-button back-button">
+      <Link
+        to="/formulario"
+        className="btn btn-outline-dark view-button back-button"
+      >
         Volver al Formulario
       </Link>
 
@@ -56,16 +26,27 @@ function Resultado() {
                     <div className="card-body p-4">
                       <img
                         className="product-image"
-                        src={producto.imagen}
+                        src={`../piproyecto/media/files/covers/${producto.img}`}
                         alt="Product"
+                        onLoad={() =>
+                          console.log(`Imagen cargada: ${producto.img}`)
+                        }
+                        onError={() =>
+                          console.log(
+                            `Error al cargar la imagen: ${producto.img}`
+                          )
+                        }
                       />
+
                       <div className="text-center">
-                        <h5 className="fw-bolder">{producto.nombre}</h5>
+                        <h5 className="fw-bolder">{producto.modelo}</h5>
                         <div className="d-flex justify-content-between">
                           <span className="fw-bold">{producto.tipo}</span>
                           <span className="fw-bold">{producto.proposito}</span>
                         </div>
-                        <p className="mt-3">{producto.costo}</p>
+                        <p className="mt-3">COP {producto.presupuesto}</p>
+                        <p>{producto.marca}</p>
+                        <p>{producto.disco}</p>
                       </div>
                     </div>
 

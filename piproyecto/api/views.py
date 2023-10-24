@@ -2,36 +2,32 @@ from rest_framework import viewsets
 from .models import Computer
 from .serializer import ComputerSerializer
 from rest_framework.permissions import (IsAuthenticated,IsAuthenticatedOrReadOnly,IsAdminUser,DjangoModelPermissions)
-from django.db import connection
+
 from django.shortcuts import render
-from django.views.decorators.csrf import csrf_exempt
-from .procedures import my_custom_sql
-from django.http.response import JsonResponse
 import json
 
-# Create your views here.
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .procedures import my_custom_sql
+
 
 class ComputerViews(viewsets.ModelViewSet):
     queryset = Computer.objects.all()
     serializer_class = ComputerSerializer
-
-    #Agregue los permisos desde el viewModel ofrecido por django Rest Framework donde solo usuarios autenticados puedan realizar los registros de las computadoras
     permission_classes = [DjangoModelPermissions]
 
-    # def get_permissions(self):
-    #     if self.request.method in ['POST','PUT','DELETE','PATCH']:
-    #         return [IsAuthenticated()]
-    #     return[IsAuthenticatedOrReadOnly()]
-    
-    
-
-@csrf_exempt
-def consulta(request, id=0):
-    json_list = []
+@api_view(['POST'])
+def consulta(request):
     if request.method == 'POST':
-        result = my_custom_sql("Trabajo","Lenovo","Windows 11", "512 GB", "Portatil")
-        for element in result:
-            element_json = json.loads(element[0])
-            json_list.append(element_json)
-        return JsonResponse(json_list, safe=False)
-    return JsonResponse("Error al consultar Computador")
+        data = request.data
+        result = my_custom_sql(
+            data.get('proposito', ''),
+            data.get('marca', ''),
+            data.get('sistemaOperativo', ''),
+            data.get('capDisco', ''),
+            data.get('tipComputador', '')
+        )
+        json_list = [json.loads(element[0]) for element in result]
+        return Response(json_list)
+

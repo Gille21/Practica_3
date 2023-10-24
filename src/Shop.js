@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Styles/bootstrap.min.css';
+import { Link } from 'react-router-dom';
+
 
 function Shop() {
   const [products, setProducts] = useState([]);
@@ -31,6 +33,7 @@ function Shop() {
         setLoading(false); // Cambia el estado de carga a falso
       });
   }, []);
+ 
 
   // Filtra los productos en función de los filtros seleccionados
   const filteredProducts = products.filter((product) => {
@@ -170,6 +173,9 @@ function Shop() {
                       <p className="card-text">Propósito: {product.proposito}</p>
                       <p className="card-text">{`COP ${product.costo}`}</p>
                       {/* Agrega botones u otras interacciones según tus necesidades */}
+                      <Link to={`/producto/${product.id_computer}`}>
+                        <button className="btn btn-primary">View Option</button>
+                      </Link>
                     </div>
                   </div>
                 </div>
