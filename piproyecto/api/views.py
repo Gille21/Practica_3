@@ -6,6 +6,7 @@ from django.db import connection
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.decorators import api_view, permission_classes
+from rest_framework.parsers import JSONParser
 from .procedures import my_custom_sql
 from django.http.response import JsonResponse
 import json
@@ -29,8 +30,10 @@ class ComputerViews(viewsets.ModelViewSet):
 @csrf_exempt
 def consulta(request, id=0):
     json_list = []
+    data = JSONParser().parse(request)
+    print(data['proposito'])
     if request.method == 'POST':
-        result = my_custom_sql("Trabajo","Lenovo","Windows 11", "512 GB", "Portatil")
+        result = my_custom_sql(data['proposito'],data['marca'],data['sistema_operativo'], data['cap_disco'], data['tip_computador'])
         for element in result:
             element_json = json.loads(element[0])
             json_list.append(element_json)

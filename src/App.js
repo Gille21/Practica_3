@@ -15,6 +15,9 @@ import Register from './views/register';
 import Private from './views/private';
 import MainWrapper from './layouts/MainWrapper';
 import PrivateRoute from './layouts/PrivateRoute';
+import Ccompu from './crud/ccompu';
+import Consulta from './consulta';
+
 
 function App() {
   return (
@@ -35,7 +38,9 @@ function App() {
           <Route path="/private" element={
                 <PrivateRoute>
                   <Private />
-                </PrivateRoute>} />   
+                </PrivateRoute>} />
+          <Route path="/crud/ccompu" element={<Ccompu />} />
+          <Route path="/consulta" element={<Consulta />} />
         </Routes>
         <Footer />
       </div>
