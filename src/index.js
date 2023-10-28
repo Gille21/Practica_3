@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import MainApp from './App'; // Asegúrate de que esté apuntando al archivo correcto
 
 

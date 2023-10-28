@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import "./Styles/resultados.css";
 import "./Styles/bootstrap.min.css";
 
-function Resultado(props) {
+function Resultado() {
   const location = useLocation();
   const productosFiltrados = location.state.productosFiltrados || [];
 

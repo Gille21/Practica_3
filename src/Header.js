@@ -1,7 +1,8 @@
 import React, { useEffect} from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'; // Importa Link de react-router-dom
+import './Styles/Header.css';
+import './Styles/bootstrap.min.css';
 import { useLocation } from 'react-router-dom';
- // Importa Link de react-router-dom
 import About from './About';
 // import Resultados from './Resultados';
 
@@ -115,15 +116,13 @@ function Header() {
               <div className="me-2">logo</div>
               <div className="me-2">logo</div>
               <div className="me-2">logo</div>
-              <div>logo</div>
             </div>
           </div>
         </div>
       </div>
 
       <nav className="navbar navbar-expand-lg navbar-light shadow">
-        <div className="container d-flex justify-content-between align-items-center">
-          {/* Enlace al inicio */}
+        <div className="container d-flex justify-content-between align-items-center">{/* Enlace al inicio */}
           <Link to="/" className="navbar-brand text-success logo h1 align-self-center">PCEXPRESS</Link>
 
           <button className="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="templatemo_main_nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -144,6 +143,9 @@ function Header() {
                   <Link to="/shop" className="nav-link">Shop</Link>
                 </li>
 
+                <li className="nav-item">
+                  <Link to="/views/login" className="nav-link">Login</Link>
+                </li>
               </ul>
             </div>
             <div className="navbar align-self-center d-flex">
