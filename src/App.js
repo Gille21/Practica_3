@@ -7,9 +7,9 @@ import Footer from './Footer';
 import Formulario from './Formulario';
 import Resultados from './Resultados';
 import Body from './Body';
-import About from './About'; 
+import About from './About';
 import Shop from './Shop';
-import Producto from './Producto'; // Importa el componente Producto
+import Producto from './Producto';
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
           <Route path="/shop" element={<Shop />} />
           <Route path="/formulario" element={<Formulario />} />
           <Route path="/resultados" element={<Resultados />} />
-          <Route path="/producto/:id" element={<Producto />} /> {/* Ruta para detalles del producto */}
+          <Route path="/producto/:id" element={<Producto />} />
         </Routes>
         <Footer />
       </div>

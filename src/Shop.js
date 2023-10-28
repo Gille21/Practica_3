@@ -2,40 +2,49 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Styles/bootstrap.min.css';
 import { Link } from 'react-router-dom';
-
+import Comparador from './Comparador'; // Importa el componente Comparador
 
 function Shop() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  
   const [filters, setFilters] = useState({
-    type: 'all', // Opciones: 'all', 'portatil', 'escritorio'
-    purpose: 'all', // Opciones: 'all', 'gamer', 'trabajo', 'entretenimiento'
+    type: 'all',
+    purpose: 'all',
   });
 
+  const [selectedProducts, setSelectedProducts] = useState([]); // Estado para rastrear productos seleccionados
+
   useEffect(() => {
-    // Configura tu URL de la API y las credenciales de autenticación (usuario y contraseña)
     const apiUrl = 'http://127.0.0.1:8000/api/computers/';
     const auth = {
       username: 'guille',
       password: '210601Ghln.',
     };
 
-    // Realiza una solicitud GET con Axios
     axios
       .get(apiUrl, { auth })
       .then((response) => {
-        setProducts(response.data); // Almacena los productos en el estado
-        setLoading(false); // Cambia el estado de carga a falso
+        setProducts(response.data);
+        setLoading(false);
       })
       .catch((err) => {
-        setError(err); // Maneja errores si ocurren
-        setLoading(false); // Cambia el estado de carga a falso
+        setError(err);
+        setLoading(false);
       });
   }, []);
- 
 
-  // Filtra los productos en función de los filtros seleccionados
+  const handleCompare = (product) => {
+    if (selectedProducts.some((p) => p.id_computer === product.id_computer)) {
+      const updatedList = selectedProducts.filter((p) => p.id_computer !== product.id_computer);
+      setSelectedProducts(updatedList);
+    } else {
+      setSelectedProducts([...selectedProducts, product]);
+    }
+  };
+  
+
   const filteredProducts = products.filter((product) => {
     if (
       (filters.type === 'all' || product.tip_computador === filters.type) &&
@@ -172,7 +181,14 @@ function Shop() {
                       <p className="card-text">Tipo: {product.tip_computador}</p>
                       <p className="card-text">Propósito: {product.proposito}</p>
                       <p className="card-text">{`COP ${product.costo}`}</p>
-                      {/* Agrega botones u otras interacciones según tus necesidades */}
+
+                      <button
+                        className={selectedProducts.some((p) => p.id_computer === product.id_computer) ? 'btn btn-primary selected' : 'btn btn-primary'}
+                        onClick={() => handleCompare(product)}
+                      >
+                        {selectedProducts.some((p) => p.id_computer === product.id_computer) ? 'Quitar de Comparación' : 'Comparar'}
+                      </button>
+
                       <Link to={`/producto/${product.id_computer}`}>
                         <button className="btn btn-primary">View Option</button>
                       </Link>
@@ -184,6 +200,9 @@ function Shop() {
           </div>
         </div>
       </div>
+
+      {/* Mostrar el componente Comparador si hay productos seleccionados */}
+      {selectedProducts.length >= 2 && <Comparador selectedProducts={selectedProducts} />}
     </div>
   );
 }
