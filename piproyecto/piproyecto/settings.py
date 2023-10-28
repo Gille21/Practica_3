@@ -10,7 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
+import cloudinary_storage
 from pathlib import Path
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,6 +45,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'coreapi',
     'corsheaders',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 
@@ -55,9 +60,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
 ]
-CORS_ORIGIN_WHITELIST = (
-    'http://localhost:3000',
-)
+
+CORS_ALLOWED_ORIGINS = ["http://localhost:3000"]
+
 ROOT_URLCONF = 'piproyecto.urls'
 
 TEMPLATES = [
@@ -89,7 +94,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'piproyecto',
         'USER': 'root',
-        'PASSWORD': 'guille',
+        'PASSWORD': 'samuel159',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -146,3 +151,11 @@ REST_FRAMEWORK = {
     #     'rest_framework.permissions.IsAuthenticated',
     # ]
 }
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'deecwop2g',
+    'API_KEY': '858481968834799',
+    'API_SECRET': 'kQs8noisbG3hV80DfWb45J4ShZk'
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'

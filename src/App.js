@@ -10,6 +10,9 @@ import Body from './Body';
 import About from './About';
 import Shop from './Shop';
 import Producto from './Producto';
+import Ccompu from './crud/ccompu';
+import Consulta from './consulta';
+
 
 function App() {
   return (
@@ -23,6 +26,8 @@ function App() {
           <Route path="/formulario" element={<Formulario />} />
           <Route path="/resultados" element={<Resultados />} />
           <Route path="/producto/:id" element={<Producto />} />
+          <Route path="/crud/ccompu" element={<Ccompu />} />
+          <Route path="/consulta" element={<Consulta />} />
         </Routes>
         <Footer />
       </div>

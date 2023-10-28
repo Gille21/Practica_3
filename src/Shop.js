@@ -19,8 +19,8 @@ function Shop() {
   useEffect(() => {
     const apiUrl = 'http://127.0.0.1:8000/api/computers/';
     const auth = {
-      username: 'guille',
-      password: '210601Ghln.',
+      username: 'samuel',
+      password: 'samuel159',
     };
 
     axios
