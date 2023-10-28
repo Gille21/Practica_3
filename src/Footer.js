@@ -1,5 +1,7 @@
 import React from 'react';
-import './Styles/bootstrap.min.css'; // Importa el archivo CSS para los estilos del footer
+import './Styles/Footer.css';
+import { Link } from 'react-router-dom'; // Importa Link de react-router-dom
+// Importa el archivo CSS para los estilos del footer
 
 function Footer() {
   return (
@@ -8,29 +10,27 @@ function Footer() {
         <div className="row">
           <div className="col-md-4">
             <h3 className="text-success">PCEXPRESS</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>Encuentra el computador de tus sueños a la medida de tus necesidades.</p>
           </div>
           <div className="col-md-4">
             <h3>Quick Links</h3>
             <ul className="list-unstyled">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="shop.html">Shop</a></li>
-              <li><a href="contact.html">Contact</a></li>
+              <Link to="/"><li>Home</li></Link>
+              <Link to="/about"><li>About</li></Link>
+              <Link to="/shop"><li>Shop</li></Link>
+              <Link to="/contact"><li>Contact</li></Link>
             </ul>
           </div>
           <div className="col-md-4">
             <h3>Contact Us</h3>
             <address>
-              <p>Aqui va una Dirección</p>
-              <p>Email: Aqui un Correo</p>
-              <p>Phone: Aca un Número de Telefono</p>
+              <p>Adress: Cra. 5 # 21-38</p>
+              <p>Email: pcExpress@pcexpress.co</p>
+              <p>Phone: +57 304 386 37 39 </p>
             </address>
           </div>
         </div>
-
         </div>
-
     </footer>
   );
 }

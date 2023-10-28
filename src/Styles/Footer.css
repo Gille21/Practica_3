@@ -1,6 +1,8 @@
 /* Footer Styles */
 footer {
-    background-color: #212934;
+    margin-top: 20px;
+    width: 100% !important;
+    background-color: hsl(215, 22%, 17%);
     color: #cfd6e1;
   }
   
@@ -15,9 +17,18 @@ footer {
   footer ul.list-unstyled li a:hover {
     color: #69bb7e;
   }
+
+  footer a{
+    color: #fff;
+  }
+
+  footer a:hover{
+    color: #69bb7e;
+  }
+
   
   /* Small devices (landscape phones, 576px and up) */
-  @media (min-width: 576px) {
+  @media (min-width: 600px) {
     footer {
       padding: 2rem 0;
     }

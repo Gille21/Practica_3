@@ -1,7 +1,6 @@
 import React from 'react';
-import './Styles/styles.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
+import './Styles/styles.css';
 import Header from './Header';
 import Footer from './Footer';
 import Formulario from './Formulario';
@@ -9,27 +8,41 @@ import Resultados from './Resultados';
 import Body from './Body';
 import About from './About'; 
 import Shop from './Shop';
-import Login from './auth/login';
-import Register from './auth/register';
+import Home from './views/home';
+import Login from './views/login';
+import Logout from './views/logout';
+import Register from './views/register';
+import Private from './views/private';
+import MainWrapper from './layouts/MainWrapper';
+import PrivateRoute from './layouts/PrivateRoute';
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Header />
-        <Routes>
+      <MainWrapper>
+      <div className="root">
+      <Header />
+        <Routes>        
         <Route path="/" element={<Body />} />
-          <Route path="/about" element={<About />} /> {/* Ruta para la página About */}
-          <Route path="/shop" element={<Shop />} /> {/* Ruta para la página About */}
-          <Route path="/formulario" element={<Formulario />} />
-          <Route path="/resultados" element={<Resultados />} />
-          <Route path="/auth/login" element={< Login/>} />
-          <Route path="/auth/register" element={< Register/>} />
+            <Route path="/about" element={<About />} /> {/* Ruta para la página About */}
+            <Route path="/shop" element={<Shop />} /> {/* Ruta para la página About */}
+            <Route path="/formulario" element={<Formulario />} />
+            <Route path="/resultados" element={<Resultados />} />
+          <Route path="/portalHome" element={<Home />} />
+          <Route path="/views/login" element={<Login/>} />
+          <Route path="/views/register" element={<Register />} />
+          <Route path="/logout" element={<Logout />} />        
+          <Route path="/private" element={
+                <PrivateRoute>
+                  <Private />
+                </PrivateRoute>} />   
         </Routes>
         <Footer />
       </div>
+      </MainWrapper>
     </Router>
   );
 }
+
 
 export default App;

@@ -21,27 +21,13 @@ function LoginUser(){
         console.log(res);
         setCurrentUser(false);
     })
-
-    if(currentUser){
-        return(
-            <div className="center">
-                <h2>You're logged in!</h2>
-                <form onSubmit={onSubmitLogout}>
-                    <div className="mb-3">
-                        <button>Logout</button>
-                    </div>
-                </form>
-            </div>
-        );
-    }
-
     return(
         <div class="center">
             <div className="body">
                 <div className="card shadow">
                     <div className="card-body">
                         <form onSubmit={onSubmit}>                        
-                        <div className="mb-3">
+                            <div className="mb-3">
                                 <label htmlFor="" className="form-label">Email</label>
                                 <input type="email" className="form-control" placeholder="example@dom.com" {...register('email',{required: true})}/>
                             </div> 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'; // Importa Link de react-router-dom
-import About from './About';
-// import Resultados from './Resultados';
+import './Styles/Header.css';
+import './Styles/bootstrap.min.css';
 
 function Header() {
   return (
@@ -36,8 +36,7 @@ function Header() {
       </div>
 
       <nav className="navbar navbar-expand-lg navbar-light shadow">
-        <div className="container d-flex justify-content-between align-items-center">
-          {/* Enlace al inicio */}
+        <div className="container d-flex justify-content-between align-items-center">{/* Enlace al inicio */}
           <Link to="/" className="navbar-brand text-success logo h1 align-self-center">PCEXPRESS</Link>
 
           <button className="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="templatemo_main_nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,7 +60,7 @@ function Header() {
                   <Link to="/contact" className="nav-link">Contact</Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/auth/login" className="nav-link">Login</Link>
+                  <Link to="/views/login" className="nav-link">Login</Link>
                 </li>
               </ul>
             </div>
