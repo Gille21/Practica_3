@@ -2,7 +2,6 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './Styles/resultados.css';
-
 import LAPTOP from './img/LAPTOP.png';
 import LAPTOP2 from './img/LAPTOP3.webp';
 import LAPTOP3 from './img/LAPTOP2.png';

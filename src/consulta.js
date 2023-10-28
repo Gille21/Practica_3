@@ -3,6 +3,7 @@ import './Styles/bootstrap.min.css';
 import React from 'react';
 import {useForm} from 'react-hook-form';
 import {consulta} from './crud/compu.api';
+import { Link } from 'react-router-dom';
     
 function Consulta(){
 
@@ -40,6 +41,11 @@ function Consulta(){
                         </div>
                         <div className="mb-3">
                             <button>Guardar</button>
+                        </div>
+                        <div className="mb-3">
+                            <Link to='/portalHome'>
+                                <button>Volver</button>
+                            </Link>
                         </div>
                     </form>
                 </div>

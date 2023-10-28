@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import useAxios from '../utils/useAxios';
 
 const Private = () => {
@@ -35,6 +36,11 @@ const Private = () => {
                 <input type="text" placeholder="Enter Text" />
                 <button type="submit">Submit</button>
             </form>
+            <div className="mb-3">
+                <Link to='/portalHome'>
+                    <button>Volver</button>
+                </Link>
+            </div>
             {posRes && <p>{posRes}</p>}
         </section>
     );

@@ -31,7 +31,7 @@ class ComputerViews(viewsets.ModelViewSet):
 def consulta(request, id=0):
     json_list = []
     data = JSONParser().parse(request)
-    print(data['proposito'])
+    print(data)
     if request.method == 'POST':
         result = my_custom_sql(data['proposito'],data['marca'],data['sistema_operativo'], data['cap_disco'], data['tip_computador'])
         for element in result:

@@ -3,6 +3,7 @@ import '../Styles/bootstrap.min.css';
 import React, {useState} from 'react';
 import {useForm} from 'react-hook-form';
 import {createCompu} from './compu.api';
+import { Link } from 'react-router-dom';
     
 function Ccompu(){
 
@@ -29,7 +30,6 @@ function Ccompu(){
         const img = await uploadImage(data["img"])
         data["img"] = img
         const res = await createCompu(data);
-        console.log(res)
     })
 
     return(
@@ -168,7 +168,12 @@ function Ccompu(){
                             <input type="file" className="form-control" {...register('img',{required: false})}/>
                         </div>
                         <div className="mb-3">
-                            <button>Guardar</button>
+                            <button>Guardar</button>                            
+                        </div>
+                        <div className="mb-3">
+                        <Link to='/portalHome'>
+                                <button>Volver</button>
+                            </Link>
                         </div>
                     </form>
                 </div>

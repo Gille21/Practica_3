@@ -1,11 +1,8 @@
-import React from 'react';
+import React, { useEffect} from 'react';
 import { Link } from 'react-router-dom'; // Importa Link de react-router-dom
 import './Styles/Header.css';
 import './Styles/bootstrap.min.css';
-import React, { useEffect} from 'react';
-import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
- // Importa Link de react-router-dom
 import About from './About';
 // import Resultados from './Resultados';
 
