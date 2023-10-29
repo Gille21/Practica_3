@@ -167,18 +167,23 @@ function Ccompu(){
                             <label htmlFor="" className="form-label">Imagen del equipo *</label>
                             <input type="file" className="form-control" {...register('img',{required: false})}/>
                         </div>
-                        <div className="mb-3">
-                            <button>Guardar</button>                            
-                        </div>
-                        <div className="mb-3">
-                        <Link to='/portalHome'>
-                                <button>Volver</button>
-                            </Link>
-                        </div>
+                        <center>
+                            <div className='container'>
+                                <div className='row'>
+                                    <div className="col-6">
+                                        <button>Guardar</button>                            
+                                    </div>
+                                    <div className="col-6">
+                                    <Link to='/portalHome'>
+                                            <button>Volver</button>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>  
+                        </center>                      
                     </form>
                 </div>
             </div>
-
         </div>
     );
 }

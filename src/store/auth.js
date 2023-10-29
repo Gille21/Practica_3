@@ -1,8 +1,9 @@
 import { create } from 'zustand';
 import { mountStoreDevtool } from 'simple-zustand-devtools';
 
+/*En este apartado se crea un almacenamiento de las autenticaciones */
 const useAuthStore = create((set, get) => ({
-    allUserData: null, // Use this to store all user data
+    allUserData: null,
     loading: false,
     user: () => ({
         user_id: get().allUserData?.user_id || null,

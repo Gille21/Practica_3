@@ -1,10 +1,29 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import './Styles/Footer.css';
-import { Link } from 'react-router-dom'; // Importa Link de react-router-dom
+import { Link, useLocation } from 'react-router-dom';// Importa Link de react-router-dom
 // Importa el archivo CSS para los estilos del footer
 import './Styles/bootstrap.min.css';
 
-function Footer() {
+function Footer(){
+
+  const rutaRegexAuth = /^\/views\//
+
+  const location = useLocation();
+
+  // Aquí puedes realizar cualquier lógica específica del encabezado
+
+  // Utiliza useEffect para realizar acciones cuando cambia la ubicación
+  useEffect(() => {
+    // Coloca aquí cualquier lógica que deseas ejecutar cuando la ubicación cambia
+    // Esto se ejecutará cada vez que cambie la ruta
+  }, [location]);
+
+if (rutaRegexAuth.test(location.pathname)) { 
+  return(
+    <footer>      
+    </footer>
+  ); 
+}else{
   return (
     <footer className="bg-dark text-light">
       <div className="container">
@@ -34,6 +53,7 @@ function Footer() {
         </div>
     </footer>
   );
+}
 }
 
 export default Footer;

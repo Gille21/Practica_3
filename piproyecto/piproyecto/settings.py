@@ -127,6 +127,7 @@ REST_FRAMEWORK = {
     )
 }
 
+#Aca se configura el token el cual es SIMPLE_JWT_TOKEN
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=50),

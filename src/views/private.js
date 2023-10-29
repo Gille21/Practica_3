@@ -6,6 +6,8 @@ const Private = () => {
     const [res, setRes] = useState('');
     const [posRes, setPostRes] = useState('');
     const api = useAxios();
+
+    //Valida que en el test tenga la autenticación enviada
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -17,6 +19,8 @@ const Private = () => {
         };
         fetchData();
     }, []);
+
+    //Este es el form de submit el cual se le envia un texto
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
@@ -28,6 +32,7 @@ const Private = () => {
             setPostRes(error.response.data);
         }
     };
+    
     return (
         <section>
             <h1>Private</h1>
