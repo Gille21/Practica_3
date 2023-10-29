@@ -22,7 +22,7 @@ from .procedures import my_custom_sql
 class ComputerViews(viewsets.ModelViewSet):
     queryset = Computer.objects.all()
     serializer_class = ComputerSerializer
-    permission_classes = [DjangoModelPermissions]
+    
 
     #Agregue los permisos desde el viewModel ofrecido por django Rest Framework donde solo usuarios autenticados puedan realizar los registros de las computadoras
     # permission_classes = [DjangoModelPermissions]

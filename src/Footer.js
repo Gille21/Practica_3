@@ -38,7 +38,7 @@ if (rutaRegexAuth.test(location.pathname)) {
               <Link to="/"><li>Home</li></Link>
               <Link to="/about"><li>About</li></Link>
               <Link to="/shop"><li>Shop</li></Link>
-              <Link to="/contact"><li>Contact</li></Link>
+
             </ul>
           </div>
           <div className="col-md-4">

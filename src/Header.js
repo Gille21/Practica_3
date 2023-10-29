@@ -169,9 +169,7 @@ const Home = () => {
               <li className="nav-item">
                 <Link to="/shop" className="nav-link">Shop</Link>
               </li>
-              <li className="nav-item">
-                <Link to="/contact" className="nav-link">Contact</Link>
-              </li>
+
             </ul>
           </div>
           <div className="navbar align-self-center d-flex">
@@ -265,9 +263,7 @@ const Home = () => {
                 <li className="nav-item">
                   <Link to="/shop" className="nav-link">Shop</Link>
                 </li>
-                <li className="nav-item">
-                  <Link to="/contact" className="nav-link">Contact</Link>
-                </li>
+
               </ul>
             </div>
             <div className="navbar align-self-center d-flex">
