@@ -61,6 +61,7 @@ function Formulario() {
             <option value="">Selecciona una opción</option>
             <option value="Trabajo">Trabajo</option>
             <option value="Gamer">Gamer</option>
+            <option value="Entretenimiento">Entretenimiento</option>
             {/* Agrega más opciones según sea necesario */}
           </select>
         </div>
@@ -73,9 +74,9 @@ function Formulario() {
             onChange={(e) => setMarca(e.target.value)}
           >
             <option value="">Selecciona una opción</option>
-            <option value="Lenovo">Lenovo</option>
-            <option value="Asus">Asus</option>
-            <option value="MSI">MSI</option>
+            <option value="Apple">Apple</option>
+            <option value="Razer">Razer</option>
+            <option value="HP">HP</option>
             {/* Agrega más opciones según sea necesario */}
           </select>
         </div>
@@ -88,7 +89,7 @@ function Formulario() {
             onChange={(e) => setSistemaOperativo(e.target.value)}
           >
             <option value="">Selecciona una opción</option>
-            <option value="Windows 11">Windows 11</option> {/* Modifica el valor aquí */}
+            <option value="Windows 11 Home">Windows 11 Home</option> {/* Modifica el valor aquí */}
             <option value="Mac">Mac</option>
             {/* Agrega más opciones según sea necesario */}
           </select>
@@ -103,7 +104,7 @@ function Formulario() {
           >
             <option value="">Selecciona una opción</option>
             <option value="512 GB">512 GB</option> {/* Modifica el valor aquí */}
-            <option value="1 TB">1 TB</option>
+            <option value="1.5 TB">1.5 TB</option>
             {/* Agrega más opciones según sea necesario */}
           </select>
         </div>

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import "./Styles/resultados.css";
-import "./Styles/bootstrap.min.css";
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import './Styles/resultados.css';
+import './Styles/bootstrap.min.css';
 
 function Resultado() {
   const location = useLocation();
@@ -26,18 +26,16 @@ function Resultado() {
                     <div className="card-body p-4">
                       <img
                         className="product-image"
-                        src={`../piproyecto/media/files/covers/${producto.img}`}
-                        alt="Product"
+                        src={producto.img}
+                        alt={producto.modelo}
                         onLoad={() =>
                           console.log(`Imagen cargada: ${producto.img}`)
                         }
                         onError={() =>
                           console.log(
                             `Error al cargar la imagen: ${producto.img}`
-                          )
-                        }
-                      />
-
+                          )}
+                        />
                       <div className="text-center">
                         <h5 className="fw-bolder">{producto.modelo}</h5>
                         <div className="d-flex justify-content-between">
@@ -52,9 +50,11 @@ function Resultado() {
 
                     <div className="card-footer p-4 pt-0 border-top-0 bg-transparent">
                       <div className="text-center">
-                        <button className="btn btn-outline-dark view-button">
-                          View Options
-                        </button>
+                        <Link to={`/producto/${producto.id_computer}`}>
+                          <button className="btn btn-outline-dark view-button">
+                            View Options
+                          </button>
+                        </Link>
                       </div>
                     </div>
                   </div>

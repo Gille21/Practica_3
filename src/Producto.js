@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, Link } from 'react-router-dom';
+import './Styles/bootstrap.min.css';
 
 function Producto() {
   const { id } = useParams();
@@ -53,12 +54,11 @@ function Producto() {
           <p>Precio: COP {product.costo}</p>
           <p>Propósito: {product.proposito}</p>
           <div>
-            <a href={product.tienda} target="_blank" rel="noopener noreferrer">
-              Comprar en la Tienda
-            </a>
+            <Link to="/shop" className="btn btn-primary">Volver a la Tienda</Link>
           </div>
+
           <div>
-            <Link to="/shop">Volver a la Tienda</Link>
+            <a href={product.tienda} target="_blank" rel="noopener noreferrer" className="btn btn-primary">Comprar en la Tienda</a>
           </div>
         </div>
       </div>
