@@ -14,13 +14,18 @@ function Shop() {
     purpose: 'all',
   });
 
+  const auth = {
+    username: 'samuel',
+    password: 'samuel159',
+    };
+
   const [selectedProducts, setSelectedProducts] = useState([]); // Estado para rastrear productos seleccionados
 
   useEffect(() => {
-    const apiUrl = 'http://127.0.0.1:8000/api/computers/';
+    const apiUrl = 'http://www.impulsotemporal.com/api/api/computers/';
 
     axios
-      .get(apiUrl)
+      .get(apiUrl, {auth})
       .then((response) => {
         setProducts(response.data);
         setLoading(false);

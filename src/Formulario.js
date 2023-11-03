@@ -1,62 +1,33 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {useForm} from 'react-hook-form';
 import './Styles/formulario.css';
+import {consulta} from './crud/compu.api';
 
 function Formulario() {
   const navigate = useNavigate();
 
-  const [proposito, setProposito] = useState('');
-  const [marca, setMarca] = useState('');
-  const [sistemaOperativo, setSistemaOperativo] = useState(''); // Inicializado como una cadena vacía
-  const [capDisco, setCapDisco] = useState(''); // Inicializado como una cadena vacía
-  const [tipComputador, setTipComputador] = useState('');
-  const [presupuesto, setPresupuesto] = useState('');
+  const {register, handleSubmit, formState: {errors}} = useForm();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  
-    // Crear un objeto con los datos del formulario
-    const formData = {
-      proposito,
-      marca,
-      sistemaOperativo, // Enviado como cadena de texto
-      capDisco, // Enviado como cadena de texto
-      tipComputador,
-    };
-  
+  const onSubmit = handleSubmit(async e => {
     // Mostrar los datos que se enviarán al servidor
-    console.log('Datos a enviar:', formData);
-  
-    // Realizar una solicitud POST para enviar los datos al servidor
-    fetch('http://127.0.0.1:8000/api/consulta/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // Redirigir a la página de resultados con los datos devueltos por el servidor
-        console.log('Datos devueltos por el servidor:', data);
-        navigate('/resultados', { state: { productosFiltrados: data } });
-      })
-      .catch((error) => {
-        console.error('Error al enviar los datos al servidor:', error);
-      });
-  };
+    console.log('Datos a enviar:', e);
+    const response =await consulta(e);
+    console.log(response.data);
+    const data = response.data;
+    navigate('/resultados', { state: { productosFiltrados: data } });
+  })
 
   return (
     <div className="form-container">
       <h1>Formulario de Selección de Computadora</h1>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={onSubmit}>
         <div className="form-group">
           <label htmlFor="proposito">¿Para qué vas a usar la computadora?</label>
           <select
             id="proposito"
             className="custom-select"
-            value={proposito}
-            onChange={(e) => setProposito(e.target.value)}
+            {...register('proposito',{required: true})}
           >
             <option value="">Selecciona una opción</option>
             <option value="Trabajo">Trabajo</option>
@@ -70,8 +41,7 @@ function Formulario() {
           <select
             id="marca"
             className="custom-select"
-            value={marca}
-            onChange={(e) => setMarca(e.target.value)}
+            {...register('marca',{required: true})}
           >
             <option value="">Selecciona una opción</option>
             <option value="Apple">Apple</option>
@@ -85,8 +55,7 @@ function Formulario() {
           <select
             id="sistemaOperativo"
             className="custom-select"
-            value={sistemaOperativo}
-            onChange={(e) => setSistemaOperativo(e.target.value)}
+            {...register('sistema_operativo',{required: true})}
           >
             <option value="">Selecciona una opción</option>
             <option value="Windows 11 Home">Windows 11 Home</option> {/* Modifica el valor aquí */}
@@ -99,8 +68,7 @@ function Formulario() {
           <select
             id="capDisco"
             className="custom-select"
-            value={capDisco}
-            onChange={(e) => setCapDisco(e.target.value)}
+            {...register('cap_disco',{required: true})}
           >
             <option value="">Selecciona una opción</option>
             <option value="512 GB">512 GB</option> {/* Modifica el valor aquí */}
@@ -113,8 +81,7 @@ function Formulario() {
           <select
             id="tipComputador"
             className="custom-select"
-            value={tipComputador}
-            onChange={(e) => setTipComputador(e.target.value)}
+            {...register('tip_computador',{required: true})}
           >
             <option value="">Selecciona una opción</option>
             <option value="Portatil">Portatil</option>
@@ -127,11 +94,10 @@ function Formulario() {
             type="text" // Cambiar el tipo a texto
             id="presupuesto"
             className="custom-input"
-            value={presupuesto}
-            onChange={(e) => setPresupuesto(e.target.value)}
+            // {...register('presupuesto',{required: true})}
           />
         </div>
-        <button type="submit" className="submit-button">
+        <button>
           Enviar
         </button>
       </form>

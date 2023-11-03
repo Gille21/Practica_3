@@ -34,9 +34,9 @@ def consulta(request):
         result = my_custom_sql(
             data.get('proposito', ''),
             data.get('marca', ''),
-            data.get('sistemaOperativo', ''),
-            data.get('capDisco', ''),
-            data.get('tipComputador', '')
+            data.get('sistema_operativo', ''),
+            data.get('cap_disco', ''),
+            data.get('tip_computador', '')
         )
         json_list = [json.loads(element[0]) for element in result]
         return Response(json_list)
