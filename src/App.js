@@ -18,6 +18,7 @@ import MainWrapper from './layouts/MainWrapper';
 import PrivateRoute from './layouts/PrivateRoute';
 import Ccompu from './crud/ccompu';
 import Consulta from './consulta';
+import Ranking from './ranking';
 
 
 function App() {
