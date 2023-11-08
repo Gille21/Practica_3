@@ -68,26 +68,26 @@ function Comparador(props) {
     switch (nombre) {
       case 'costos':
         if (valor === umbralAlto && valor === umbralBajo) {
-          return '➖';
+          return '⚖️';
         }
         else if (valor > umbralBajo && valor < umbralAlto) {
-          return '➖'; // Neutro
+          return '⚖️'; // Neutro
         }
         else if (valor <= umbralBajo) {
-          return '⭐'; // Mejor
+          return '✅'; // Mejor
         }
         else {
           return '❌'; // Peor
         }
       default:
         if (valor === umbralAlto && valor === umbralBajo) {
-          return '➖';
+          return '⚖️';
         }
         else if (valor > umbralBajo && valor < umbralAlto) {
-          return '➖';
+          return '⚖️';
         }
         else if (valor >= umbralAlto) {
-          return '⭐';
+          return '✅';
         }
         else {
           return '❌';
@@ -97,7 +97,7 @@ function Comparador(props) {
 
   // Función para contar el símbolo de mejor
   const contarMejor = (parametrosRanking,simbolos) => {
-    const porcentajeSimbolos = simbolos.filter((simbolo) => simbolo === '⭐').length;
+    const porcentajeSimbolos = simbolos.filter((simbolo) => simbolo === '✅').length;
     return (porcentajeSimbolos*100)/parametrosRanking+'%';
   };
 
