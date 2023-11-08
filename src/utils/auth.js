@@ -1,6 +1,6 @@
 import { useAuthStore } from '../store/auth';
 import axios from './axios';
-import jwt_decode from 'jwt-decode';
+import {jwtDecode} from 'jwt-decode';
 import Cookies from 'js-cookie';
 
 // creamos una constante que se exportara, donde realizamos la autenticación del login de usuarios por su token
@@ -81,7 +81,7 @@ export const setAuthUser = (access_token, refresh_token) => {
     });
 
     //Decodifica el token y guarda el nombre de usuario
-    const user = jwt_decode(access_token) ?? null;
+    const user = jwtDecode(access_token) ?? null;
 
     console.log('Este fue el usuario que mando: ' + user);
     //Valida si hay usuario o no 
@@ -103,7 +103,7 @@ export const getRefreshToken = async () => {
 //Valida si el token de acceso ha expirado
 export const isAccessTokenExpired = (accessToken) => {
     try {
-        const decodedToken = jwt_decode(accessToken);
+        const decodedToken = jwtDecode(accessToken);
         console.log('este es el token decodificado:' + decodedToken)
         return decodedToken.exp < Date.now() / 1000;
     } catch (err) {
